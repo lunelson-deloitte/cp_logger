@@ -10,13 +10,13 @@ def random_time(scale=5):
     return random.random() * scale
 
 
-@cp_log(message = "Loading in data from {path}")
+@cp_log(message = "Loading in data from '{path}'")
 def load_data(path):
     time.sleep(random_time())
     return None
 
 
-@cp_log(message = "Cleaning data: {data}")
+@cp_log(message = "Cleaning {data} ...")
 def clean_data(data):
     time.sleep(random_time())
     return None
@@ -28,7 +28,7 @@ def custom_function(data):
     return None
 
 
-@cp_log(message = "Writing {data} to {path}")
+@cp_log(message = "Writing `{data}` to `{path}`")
 def write_data(data, path):
     time.sleep(random_time())
     return None
@@ -44,26 +44,26 @@ config = {
     "extra": {
         "Date": datetime.today().strftime('%B %d, %Y'),
         "Analytic": "Journal Entry Testing",
-        "Preparer": "Lucas Nelson",
-        "Reviewer": "Molly Meehan"
+        "Reviewer": "First Last",
+        "Preparer": "First Last"
     }
 }
 logger.configure(**config)
 cp_init_log(config['extra'])
 
-je = load_data('path/to/je.csv')
-tb = load_data('path/to/tb.csv')
-coa = load_data('path/to/coa.csv')
+je = load_data(path='path/to/je.csv')
+tb = load_data(path='path/to/tb.csv')
+coa = load_data(path='path/to/coa.csv')
 
-je_clean = clean_data(je)
-tb_clean = clean_data(tb)
-coa_clean = clean_data(coa)
+je_clean = clean_data(data=je)
+tb_clean = clean_data(data=tb)
+coa_clean = clean_data(data=coa)
 
-je_custom = custom_function(je_clean)
+je_custom = custom_function(data=je_clean)
 
-write_data(je_custom, 'path/to/output/je.parquet')
-write_data(tb_clean, 'path/to/output/tb.parquet')
-write_data(coa_clean, 'path/to/output/coa.parquet')
+write_data(data=je_custom, path='path/to/output/je.parquet')
+write_data(data=tb_clean, path='path/to/output/tb.parquet')
+write_data(data=coa_clean, path='path/to/output/coa.parquet')
 
 
 LOG_DELIM = r"\s*\|\s*"

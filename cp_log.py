@@ -61,7 +61,7 @@ def cp_decorator_skip(func, message):
 def cp_decorator_custom(func, message, perf):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
-        logger.debug(f"({func.__name__}) {message if message is not None else 'Starting ...'}")
+        logger.debug(f"({func.__name__}) {message.format(**kwargs) if message is not None else 'Starting ...'}")
         time_start = time.perf_counter() if perf else 0
         try:
             result = func(*args, **kwargs)
