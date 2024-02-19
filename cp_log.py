@@ -11,7 +11,7 @@ from loguru import logger
 def cp_init_log(config_dict):
     sep='='*50
     logger.info(sep)
-    logger.info(f"Date     : {config_dict['Date'] if config_dict['Date'] is not None else datetime.now().strftime('%B %d, %Y')}")
+    logger.info(f"Date     : {datetime.now().strftime('%B %d, %Y')}")
     logger.info(f"Analytic : {config_dict['Analytic'] if config_dict['Analytic'] is not None else 'Analytic Unknown'}")
     logger.info(f"Reviewer : {config_dict['Reviewer'] if config_dict['Reviewer'] else 'Reviewer Unknown'}")
     logger.info(f"Preparer : {config_dict['Preparer'] if config_dict['Preparer'] else 'Preparer Unknown'}")
@@ -42,7 +42,7 @@ def cp_summarize_log(parsed_log, *args):
     
 
 
-def cp_log(message=None, eval=True, perf=True, entry_=True, exit_=True):
+def cp_log(message=None, eval=True, perf=True, parallel=False, before=None, after=None):
     def decorator(func):
         if not eval:
             return cp_decorator_skip(func, message=message)
@@ -65,9 +65,9 @@ def cp_decorator_custom(func, message, perf):
         time_start = time.perf_counter() if perf else 0
         try:
             result = func(*args, **kwargs)
-        except:
-            logger.error(f"({func.__name__}) Error!")
-            return None
+        except Exception as e:
+            logger.error(f"({func.__name__}) Error! {e.__class__.__name__}")
+            raise Exception(e)
         time_end = time.perf_counter() if perf else 0
         logger.success(f"({func.__name__}) Completed ({cp_timer(time_start, time_end)})")
         return result
