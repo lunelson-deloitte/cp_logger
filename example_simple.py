@@ -6,8 +6,8 @@ from pprint import pprint
 # PATH_LOG_FILE = 'path/to/log.log'
 # logger.add(PATH_LOG_FILE, format="{time:HH:mm:ss.SS zz} | {level:<8} | {message}")
 
-@cp_log(log_type='read')
-def load_data(path):
+@cp_log()
+def read_data(path):
     return f'Loaded dataframe from {path}'
 
 @cp_log(log_type='dataframe', perf=False)

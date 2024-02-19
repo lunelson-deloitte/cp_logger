@@ -1,0 +1,32 @@
+15:21:26.83 CST | INFO     | ==================================================
+15:21:26.83 CST | INFO     | Date     : February 18, 2024
+15:21:26.83 CST | INFO     | Analytic : Journal Entry Testing
+15:21:26.83 CST | INFO     | Reviewer : First Last
+15:21:26.83 CST | INFO     | Preparer : First Last
+15:21:26.83 CST | INFO     | ==================================================
+15:21:26.83 CST | DEBUG    | (prep_dataset) Universal prep for JE. Input: path/to/je.csv. Output: path/to/output/je.parquet.
+15:21:26.83 CST | DEBUG    | (load_data) Loading in data from 'path/to/je.csv'
+15:21:30.46 CST | SUCCESS  | (load_data) Completed (3.63s)
+15:21:30.46 CST | WARNING  | (clean_data) Skipped Cleaning {data} ...
+15:21:30.46 CST | WARNING  | (custom_function) Skipped Removing AR transaction types
+15:21:30.46 CST | DEBUG    | (write_data) Writing `None` to `path/to/output/je.parquet`
+15:21:32.05 CST | SUCCESS  | (write_data) Completed (1.59s)
+15:21:32.05 CST | SUCCESS  | (prep_dataset) Completed (5.22s)
+15:21:32.05 CST | DEBUG    | (prep_dataset) Universal prep for TB. Input: path/to/tb.csv. Output: path/to/output/tb.parquet.
+15:21:32.05 CST | DEBUG    | (load_data) Loading in data from 'path/to/tb.csv'
+15:21:34.88 CST | SUCCESS  | (load_data) Completed (2.83s)
+15:21:34.88 CST | WARNING  | (clean_data) Skipped Cleaning {data} ...
+15:21:34.88 CST | DEBUG    | (write_data) Writing `None` to `path/to/output/tb.parquet`
+15:21:36.62 CST | SUCCESS  | (write_data) Completed (1.74s)
+15:21:36.62 CST | SUCCESS  | (prep_dataset) Completed (4.58s)
+15:21:36.62 CST | DEBUG    | (prep_dataset) Universal prep for COA. Input: path/to/coa.csv. Output: path/to/output/coa.parquet.
+15:21:36.63 CST | DEBUG    | (load_data) Loading in data from 'path/to/coa.csv'
+15:21:37.22 CST | SUCCESS  | (load_data) Completed (0.60s)
+15:21:37.22 CST | WARNING  | (clean_data) Skipped Cleaning {data} ...
+15:21:37.22 CST | DEBUG    | (write_data) Writing `None` to `path/to/output/coa.parquet`
+15:21:38.16 CST | SUCCESS  | (write_data) Completed (0.94s)
+15:21:38.16 CST | SUCCESS  | (prep_dataset) Completed (1.54s)
+15:21:38.17 CST | INFO     | ==================================================
+15:21:38.17 CST | INFO     | Script completed in 11.33s
+15:21:38.17 CST | INFO     | ERROR 0	WARNING 4	SUCCESS 9
+15:21:38.17 CST | INFO     | ==================================================
